@@ -93,4 +93,22 @@ ANSWER:
 	from scores as s1
 	order by score desc
 
+	
+	
+	
+QUESTION 8:
+	FIND THE NUMBER THAT OCCUR CONSECUTIVELY FOR MORE THAN 3 TIMES 
+POINTS :  SELF JOIN TWICE TIMES/ write 
+ANSWER: 
+	answer 1 : 
+		select distinct l3.num from `logs` as l1
+		inner join `logs` as l2 
+		where l1.id = l2.id+1 and l1.num = l2.num
+		inner join `logs` as l3
+		where l1.id = l3.id+2 and l1.num = l3.num
+		
+	answer 2:
+		select distinct l3.num as consecutivenums from `logs` as l1,`logs`as l2, `logs` as l3
+		where l1.id = l2.id+1 and l2.num = l1.num and l3.id +2= l1.id and l3.num = l1.num
+		
 '''
